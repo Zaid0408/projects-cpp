@@ -24,9 +24,8 @@ int main()
         {
             case 1:
             {
-                cout<<"_________________________________"<<endl;
-                cout<<"|-----------REGISTER------------|"<<endl;
-                cout<<"|_______________________________|"<<endl<<endl;
+                
+                cout<<"|-----------REGISTER------------|"<<endl<<endl;
                 cout<<"Enter the following credentials for registering:"<<endl<<endl;
                 cout<<"Enter your username:"<<endl;
                 cin>>name;
@@ -42,6 +41,7 @@ int main()
                     of1<<password0<<"\n";//readind data in the file
                     cout<<"Registration is Successful!"<<endl;
                 }
+                of1.close();
                 break;
             }
             case 2:
@@ -90,14 +90,67 @@ int main()
                         cout<<"         Enter 3 to Change password"<<endl<<endl;
                     }
                 }
-
-
-
+                if1.close();
                 break;
             }
             case 3:
-            cout<<"|-------CHANGE PASSWORD---------|"<<endl;
+            {
+                i=0;
+                cout<<"|-------CHANGE PASSWORD---------|"<<endl;
+                cout<<"Enter your username :-  ";
+                cin>>name;
+                cout<<"Enter your password :-  ";
+                cin>>old;
+                ifstream if2;
+                if2.open("file.txt");
+                if(if2.is_open())
+                {
+                    while(!if2.eof())// if file is open then it while go line by line to the end of the file
+                    {
+                        while(getline(if2,text))//to go through all the lines of the file
+                        {
+                            istringstream iss(text); //this class is used to stream the contents of the file
+                            iss>>word1;//using extraction operator to extract the word from the text file and the store it in credentials array to compare the details
+                            cp[i]=word1;
+                            i++;
+                        }
+                    }
+                    int e=0,f=0;
+                    while(!if2.eof() && e<=i)
+                    {
+                        f=1;
+                        if(cp[e]==name )
+                        {
+                            if(cp[e+1]==old)
+                            {
+                                ofstream of2;
+                                of2.open("file.txt");
+                                if(of2.is_open())
+                                {
+                                    cout<<"Enter new password"<<endl;
+                                    cin>>password1;
+                                    cout<<"Enter new password again "<<endl;
+                                    cin>>password2;
+
+                                    if(password1==password2)
+                                    {
+                                        of2<<cp[e]<<"\n";
+                                        of2<<password1;
+                                        cout<<"         Password Changed Successfully!"<<endl;
+                                    }
+                                    else
+                                    {
+                                        cout<<"         Incorrect password!\n"<<endl;
+                                        cout<<"         Enter 3 to Change password"<<endl<<endl;
+                                    }
+                                }
+                            }
+                        }
+                         e+=2;
+                    }
                     break;
+                }
+            }
             case 4:cout<<"         Thank You For Using!"<<endl;
                     break;
             default:cout<<"        Invalid choice"<<endl;
