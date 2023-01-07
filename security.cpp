@@ -58,7 +58,7 @@ int main()
                 if1.open("file.txt");
                 if(if1.is_open())
                 {
-                    while(!if1.eof)// if file is open then it while go line by line to the end of the file
+                    while(!if1.eof())// if file is open then it while go line by line to the end of the file
                     {
                         while(getline(if1,text))//to go through all the lines of the file
                         {
@@ -69,7 +69,7 @@ int main()
                         }
                     }
                     int d=1,b=0,c=1;
-                    while(!if1.eof && i>=c)
+                    while(!if1.eof() && i>=c)
                     {
                         if(creds[b]==user && pass ==creds[c])
                         {
@@ -95,9 +95,10 @@ int main()
 
                 break;
             }
-            case 3:;
+            case 3:
+            cout<<"|-------CHANGE PASSWORD---------|"<<endl;
                     break;
-            case 4:cout<<"         Thank You For Using!"<<endl;;
+            case 4:cout<<"         Thank You For Using!"<<endl;
                     break;
             default:cout<<"        Invalid choice"<<endl;
                     break;
