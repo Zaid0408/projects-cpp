@@ -1,45 +1,55 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>My Basic Website</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <meta charset="UTF-8">
+    <title>Pet Grooming Services</title>
+    <link rel="stylesheet" href="styles.css">
   </head>
   <body>
     <header>
-      <h1>Welcome to my website</h1>
+      <h1>Pet Grooming Services</h1>
+      <nav>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+      </nav>
     </header>
-    <nav>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
     <main>
-      <section id="about">
-        <h2>About</h2>
-        <p>This is my basic website created using HTML and CSS.</p>
+      <section class ="about-us" id="about">
+        <h2>About Us</h2>
+        <p>Pet Grooming Services is a professional pet grooming company dedicated to providing top-notch grooming services for your furry friends. Our experienced groomers are passionate about pets and take pride in providing a comfortable and stress-free grooming experience.</p>
       </section>
-      <section id="services">
+      <section class ="services" id="services">
         <h2>Services</h2>
-        <p>I offer the following services:</p>
         <ul>
-          <li>Web design</li>
-          <li>Web development</li>
-          <li>Search engine optimization</li>
+          <li>Bath and Brush</li>
+          <li>Hair Trimming</li>
+          <li>Nail Trimming</li>
+          <li>Ear Cleaning</li>
         </ul>
       </section>
-      <section id="contact">
-        <h2>Contact</h2>
-        <p>You can contact me at:</p>
-        <ul>
-          <li>Email: contact@example.com</li>
-          <li>Phone: 555-555-5555</li>
-        </ul>
+      <section class ="pricing" id="pricing">
+        <h2>Pricing</h2>
+        <p>Our prices are competitive and vary based on the type and size of your pet. Contact us for a personalized quote.</p>
+      </section>
+      <section class ="contact-us" id="contact">
+        <h2>Contact Us</h2>
+        <form action="#">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required><br><br>
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required><br><br>
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" required></textarea><br><br>
+          <input type="submit" value="Submit">
+        </form>
       </section>
     </main>
     <footer>
-      <p>Copyright ©2022 My Website</p>
+      <p>Copyright &copy; Pet Grooming Services</p>
     </footer>
   </body>
 </html>
